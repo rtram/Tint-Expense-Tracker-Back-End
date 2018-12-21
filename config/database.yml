@@ -41,7 +41,7 @@ development:
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+  port: 5431
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -58,6 +58,9 @@ development:
 test:
   <<: *default
   database: expense_tracker_test
+  username: postgres
+  password: 944876
+
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,5 +84,5 @@ test:
 production:
   <<: *default
   database: expense_tracker_production
-  username: expense_tracker
-  password: <%= ENV['EXPENSE_TRACKER_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: 944876
