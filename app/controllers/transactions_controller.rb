@@ -20,9 +20,14 @@ class TransactionsController < ApplicationController
     @transaction.save
   end
 
-  def update()
+  def update
     @transaction = Transaction.find(params[:id])
     @transaction.update(strong_params)
+  end
+
+  def destroy
+    @transaction = Transaction.find(params[:id])
+    @transaction.destroy
   end
 
   private
