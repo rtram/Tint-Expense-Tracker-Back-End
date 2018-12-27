@@ -19,4 +19,15 @@ class TransactionsController < ApplicationController
 
     @transaction.save
   end
+
+  def update()
+    @transaction = Transaction.find(params[:id])
+    @transaction.update(strong_params)
+  end
+
+  private
+
+  def strong_params
+    params.require(:transaction).permit(:id, :date, :description, :amount)
+  end
 end
