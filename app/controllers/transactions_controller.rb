@@ -22,7 +22,10 @@ class TransactionsController < ApplicationController
 
   def update
     @transaction = Transaction.find(params[:id])
-    @transaction.update(strong_params)
+    @transaction.date = params[:date]
+    @transaction.description = params[:description]
+    @transaction.amount = sprintf("%2.2f", params[:amount]).to_f
+    @transaction.save
   end
 
   def destroy
