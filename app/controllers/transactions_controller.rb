@@ -18,6 +18,8 @@ class TransactionsController < ApplicationController
     @transaction.amount = sprintf("%2.2f", params[:amount])
 
     @transaction.save
+
+    render json: @transaction
   end
 
   def update
@@ -26,6 +28,8 @@ class TransactionsController < ApplicationController
     @transaction.description = params[:description]
     @transaction.amount = sprintf("%2.2f", params[:amount]).to_f
     @transaction.save
+
+    render json: @transaction
   end
 
   def destroy
